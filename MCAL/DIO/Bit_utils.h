@@ -11,7 +11,7 @@
 #define ASSIGN_REG(reg,value) reg=value
 #define SET_REG(reg) reg=0xFF
 #define CLR_REG(reg) reg=0
-#define TGL_Bit(reg,bit) reg^=(1<<bit)
+#define TGL_BIT(reg,bit) reg^=(1<<bit)
 #define TGL_REG(reg) reg^=0xFF
 #define SET_H_NIB(reg) reg|=0xF0
 #define SET_L_NIB(reg) reg|=0x0F
