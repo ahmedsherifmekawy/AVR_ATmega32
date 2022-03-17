@@ -95,7 +95,6 @@ void Scene_three()
 		Lcd_vidDisplayCharacter('_');
 	}
 
-	Lcd_vidSendCommand(LCD_u8CLEAR_DISPLAY);
 
 	r = LCD_u8ROW_2;
 	Lcd_vidGoTo( LCD_u8ROW_1 , 0);
