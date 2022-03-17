@@ -18,7 +18,7 @@ typedef enum{
 }Dio_tenuErrorStatus;
 
 
-#define DIO_u8NUMBER_OF_PINS     32
+#define DIO_u8NUMBER_OF_PINS     31
 
 #define DIO_u8LEVEL_ZERO         0
 #define DIO_u8LEVEL_ONE          1
