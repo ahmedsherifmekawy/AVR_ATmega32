@@ -20,4 +20,12 @@ typedef unsigned short int *   pu16;
 typedef unsigned long int *    pu32;
 typedef unsigned long long *   pu64;
 
+
+typedef const unsigned char          ku8;
+typedef const unsigned short int     ku16;
+typedef const unsigned long int 	 ku32;
+typedef const unsigned long long     ku64;
+
+#define NULL                   (void *) 0x0
+
 #endif
