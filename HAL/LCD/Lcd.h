@@ -83,6 +83,6 @@ void Lcd_vidSendCommand( u8 Copy_u8Command );
 void Lcd_vidDisplayCharacter( u8 Copy_u8Character );
 void Lcd_vidCreateCustomCharacter( pu8 Add_pu8CustomCharacter , u8 Copy_u8CgramAddress );
 
-void Lcd_vidDisplayNumber( u32 Copy_u32Number );
+void Lcd_vidDisplayNumber( s32 Copy_s32Number );
 void Lcd_vidGoTo( u8 Copy_u8Row , u8 Copy_u8Col );
 void Lcd_vidDisplayString( pu8 Add_pu8String );

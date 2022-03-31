@@ -9,8 +9,6 @@
 #include "Std_types.h"
 #include "Bit_utils.h"
 #include "Dio.h"
-#include "Port.h"
-#include "Port_cfg.h"
 #include "Lcd.h"
 #include "Lcd_cfg.h"
 #include "util/delay.h"
@@ -20,10 +18,6 @@
 //////////////////////////////////////////////////////////////////////
 void Lcd_vidInit()
 {
-	Port_enuSetPinDirection( LCD_u8RW , PORT_u8PIN_OUTPUT );
-	Port_enuSetPinDirection( LCD_u8RS , PORT_u8PIN_OUTPUT );
-	Port_enuSetPinDirection( LCD_u8ENABLE , PORT_u8PIN_OUTPUT );
-
 	_delay_ms(50);
 	Lcd_vidSendCommand( LCD_u8EIGHT_BIT_MODE | LCD_u8TWO_LINE_DISPLAY );
 	_delay_ms(1);
@@ -36,16 +30,6 @@ void Lcd_vidInit()
 
 void Lcd_vidSendCommand( u8 Copy_u8Command )
 {
-	Port_enuSetPinDirection( PORT_u8PIN_0 , PORT_u8PIN_OUTPUT );
-	Port_enuSetPinDirection( PORT_u8PIN_1 , PORT_u8PIN_OUTPUT );
-	Port_enuSetPinDirection( PORT_u8PIN_2 , PORT_u8PIN_OUTPUT );
-	Port_enuSetPinDirection( PORT_u8PIN_3 , PORT_u8PIN_OUTPUT );
-	Port_enuSetPinDirection( PORT_u8PIN_4 , PORT_u8PIN_OUTPUT );
-	Port_enuSetPinDirection( PORT_u8PIN_5 , PORT_u8PIN_OUTPUT );
-	Port_enuSetPinDirection( PORT_u8PIN_6 , PORT_u8PIN_OUTPUT );
-	Port_enuSetPinDirection( PORT_u8PIN_7 , PORT_u8PIN_OUTPUT );
-
-
 	DIO_enuWritePort( LCD_u8PORT_WRITE , Copy_u8Command );
 	DIO_enuWriteChannel( LCD_u8RW , LCD_u8RW_WRITE );
 	DIO_enuWriteChannel( LCD_u8RS , LCD_u8RS_COMMAND );
@@ -56,15 +40,6 @@ void Lcd_vidSendCommand( u8 Copy_u8Command )
 }
 void Lcd_vidDisplayCharacter( u8 Copy_u8Character )
 {
-	Port_enuSetPinDirection( PORT_u8PIN_0 , PORT_u8PIN_OUTPUT );
-	Port_enuSetPinDirection( PORT_u8PIN_1 , PORT_u8PIN_OUTPUT );
-	Port_enuSetPinDirection( PORT_u8PIN_2 , PORT_u8PIN_OUTPUT );
-	Port_enuSetPinDirection( PORT_u8PIN_3 , PORT_u8PIN_OUTPUT );
-	Port_enuSetPinDirection( PORT_u8PIN_4 , PORT_u8PIN_OUTPUT );
-	Port_enuSetPinDirection( PORT_u8PIN_5 , PORT_u8PIN_OUTPUT );
-	Port_enuSetPinDirection( PORT_u8PIN_6 , PORT_u8PIN_OUTPUT );
-	Port_enuSetPinDirection( PORT_u8PIN_7 , PORT_u8PIN_OUTPUT );
-
 	DIO_enuWritePort( LCD_u8PORT_WRITE , Copy_u8Character );
 	DIO_enuWriteChannel( LCD_u8RW , LCD_u8RW_WRITE );
 	DIO_enuWriteChannel( LCD_u8RS , LCD_u8RS_DATA );
@@ -87,11 +62,11 @@ void Lcd_vidCreateCustomCharacter( pu8 Add_pu8CustomCharacter , u8 Copy_u8CgramA
 	}
 }
 
-void Lcd_vidDisplayNumber( u32 Copy_u32Number )
+void Lcd_vidDisplayNumber( s32 Copy_s32Number )
 {
-	u32 length = snprintf( LCD_u8ZERO , LCD_u8ZERO , "%ld", Copy_u32Number );
+	u32 length = snprintf( LCD_u8ZERO , LCD_u8ZERO , "%ld", Copy_s32Number );
 	pu8 str = malloc( length + LCD_u8ONE );
-	snprintf( str , length + LCD_u8ONE, "%ld", Copy_u32Number );
+	snprintf( str , length + LCD_u8ONE, "%ld", Copy_s32Number );
 
 	Lcd_vidDisplayString( str );
 }

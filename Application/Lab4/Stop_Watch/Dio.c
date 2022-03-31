@@ -6,7 +6,6 @@
  */
 
 #include <avr/io.h>
-#include "Std_types.h"
 #include "Dio.h"
 #include "Bit_utils.h"
 
