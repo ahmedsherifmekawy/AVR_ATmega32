@@ -69,14 +69,14 @@
 #define   LCD_u8SET_CGRAM_ADDRESS                         0b01000000
 #define   LCD_u8SET_DDRAM_ADDRESS                         0b10000000
 
-#define   LCD_u8CGRAM_ADDRESS_1                           0b01000000    
-#define   LCD_u8CGRAM_ADDRESS_2                           0b01001000    
-#define   LCD_u8CGRAM_ADDRESS_3                           0b01010000    
-#define   LCD_u8CGRAM_ADDRESS_4                           0b01011000    
-#define   LCD_u8CGRAM_ADDRESS_5                           0b01100000    
-#define   LCD_u8CGRAM_ADDRESS_6                           0b01101000    
-#define   LCD_u8CGRAM_ADDRESS_7                           0b01110000    
-#define   LCD_u8CGRAM_ADDRESS_8                           0b01111000    
+#define   LCD_u8CGRAM_ADDRESS_1                           0b01000000
+#define   LCD_u8CGRAM_ADDRESS_2                           0b01001000
+#define   LCD_u8CGRAM_ADDRESS_3                           0b01010000
+#define   LCD_u8CGRAM_ADDRESS_4                           0b01011000
+#define   LCD_u8CGRAM_ADDRESS_5                           0b01100000
+#define   LCD_u8CGRAM_ADDRESS_6                           0b01101000
+#define   LCD_u8CGRAM_ADDRESS_7                           0b01110000
+#define   LCD_u8CGRAM_ADDRESS_8                           0b01111000
 
 #define   LCD_u8ADDRESS_MASK                              0b01111111
 #define   LCD_u8BF_MASK                                   0b10000000
@@ -91,6 +91,6 @@ void Lcd_vidSendCommand( u8 Copy_u8Command );
 void Lcd_vidDisplayCharacter( u8 Copy_u8Character );
 void Lcd_vidCreateCustomCharacter( pu8 Add_pu8CustomCharacter , u8 Copy_u8CgramAddress );
 
-void Lcd_vidDisplayNumber( s32 Copy_s32Number );
+void Lcd_vidDisplayNumber( u32 Copy_u32Number );
 void Lcd_vidGoTo( u8 Copy_u8Row , u8 Copy_u8Col );
 void Lcd_vidDisplayString( pu8 Add_pu8String );

@@ -63,11 +63,11 @@ void Lcd_vidCreateCustomCharacter( pu8 Add_pu8CustomCharacter , u8 Copy_u8CgramA
 	}
 }
 
-void Lcd_vidDisplayNumber( s32 Copy_s32Number )
+void Lcd_vidDisplayNumber( u32 Copy_u32Number )
 {
-	u32 length = snprintf( LCD_u8ZERO , LCD_u8ZERO , "%ld", Copy_s32Number );
+	u32 length = snprintf( LCD_u8ZERO , LCD_u8ZERO , "%ld", Copy_u32Number );
 	pu8 str = malloc( length + LCD_u8ONE );
-	snprintf( str , length + LCD_u8ONE, "%ld", Copy_s32Number );
+	snprintf( str , length + LCD_u8ONE, "%ld", Copy_u32Number );
 
 	Lcd_vidDisplayString( str );
 }

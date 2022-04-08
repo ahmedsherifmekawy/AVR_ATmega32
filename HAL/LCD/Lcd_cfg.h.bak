@@ -19,8 +19,8 @@
 
 #define   LCD_u8PORT_WRITE        DIO_u8PORT_A
 
-#define   LCD_u8RW                PORT_u8PIN_8 
-#define   LCD_u8RS                PORT_u8PIN_9 
-#define   LCD_u8ENABLE            PORT_u8PIN_10
+#define   LCD_u8RW                DIO_u8PIN_10
+#define   LCD_u8RS                DIO_u8PIN_9
+#define   LCD_u8ENABLE            DIO_u8PIN_8
 
 #endif /* LCD_CFG_H_ */
