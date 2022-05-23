@@ -14,8 +14,8 @@
 
 void Adc_vidInit()
 {
-	SET_BIT(ADMUX,6); // configure vref to avcc
-	SET_BIT(ADCSRA,7); // enable ADC
+	SET_BIT(ADMUX,REFS0); // configure vref to avcc
+	SET_BIT(ADCSRA,ADEN); // enable ADC
 }
 Adc_enuErrorStatus Adc_enuGetReading( pu16 Add_pu16Reading )
 {
@@ -27,10 +27,10 @@ Adc_enuErrorStatus Adc_enuGetReading( pu16 Add_pu16Reading )
 	}
 	else
 	{
-		SET_BIT(ADCSRA,6);
-		while(GET_BIT(ADCSRA,4)==0);
+		SET_BIT(ADCSRA,ADSC);
+		while(GET_BIT(ADCSRA,ADIF)==0);
 		*Add_pu16Reading = ADCL | ((u16)(ADCH)<< 8) ;
-		SET_BIT(ADCSRA,4);
+		SET_BIT(ADCSRA,ADIF);
 	}
 
 	return Loc_enuError;
